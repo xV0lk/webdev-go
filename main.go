@@ -15,5 +15,5 @@ func main() {
 
 func handleFunc(w http.ResponseWriter, r *http.Request) {
 	fmt.Println("Incoming request")
-	fmt.Fprint(w, "<h1>Test</h1>")
+	fmt.Fprint(w, "<h1>Test <em>again</em></h1>")
 }
