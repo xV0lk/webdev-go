@@ -16,6 +16,7 @@ func main() {
 	r.Get("/", handleHome)
 	r.Get("/contact", contactHandler)
 	r.Get("/faq", faqHandler)
+	r.Get("/test/{testId}", testHandler)
 
 	fmt.Printf("Started server on port: %v\n", DPORT)
 	http.ListenAndServe(fmt.Sprintf(":%v", DPORT), r)

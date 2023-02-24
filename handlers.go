@@ -3,6 +3,8 @@ package main
 import (
 	"fmt"
 	"net/http"
+
+	"github.com/go-chi/chi/v5"
 )
 
 func handleHome(w http.ResponseWriter, r *http.Request) {
@@ -32,4 +34,11 @@ func faqHandler(w http.ResponseWriter, r *http.Request) {
 		</li>
 	</ul>
 	<style>body {background-color: #3B3B3B;color: white}</style>`)
+}
+
+func testHandler(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Test Page")
+	testId := chi.URLParam(r, "testId")
+	fmt.Fprintf(w, `<h1>Url Param: %s</h1>
+	<style>body {background-color: #3B3B3B;color: white}</style>`, testId)
 }
