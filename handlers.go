@@ -2,16 +2,31 @@ package main
 
 import (
 	"fmt"
+	"html/template"
 	"net/http"
 
 	"github.com/go-chi/chi/v5"
 )
 
+func ProcessTmpl(n string, w *http.ResponseWriter) error {
+	tmpl, err := template.ParseFiles(fmt.Sprintf("templates/%s.tmpl", n))
+	if err != nil {
+		return err
+	}
+	err = tmpl.Execute(*w, nil)
+	if err != nil {
+		return err
+	}
+	return nil
+}
+
 func handleHome(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Incoming request")
+	fmt.Println("Home request")
 	w.Header().Set("Content-Type", "text/html")
-	fmt.Fprint(w, `<h1>Test <em>again 2</em></h1>
-	<style>body {background-color: #3B3B3B;color: white}</style>`)
+	err := ProcessTmpl("home", &w)
+	if err != nil {
+		http.Error(w, fmt.Errorf("Server error while parsing file: %w", err).Error(), http.StatusInternalServerError)
+	}
 }
 
 func contactHandler(w http.ResponseWriter, r *http.Request) {
