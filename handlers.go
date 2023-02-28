@@ -25,7 +25,7 @@ func handleHome(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
 	err := ProcessTmpl("home", &w)
 	if err != nil {
-		http.Error(w, fmt.Errorf("Server error while parsing file: %w", err).Error(), http.StatusInternalServerError)
+		http.Error(w, fmt.Errorf("server error while parsing file: %w", err).Error(), http.StatusInternalServerError)
 	}
 }
 
