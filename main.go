@@ -16,22 +16,13 @@ func main() {
 	r := chi.NewRouter()
 	r.Use(middleware.Logger)
 
-	tmpl, err := views.ParseTpl(CreateTmplPath("home"))
-	if err != nil {
-		panic(err)
-	}
+	tmpl := views.Must(views.ParseTpl(CreateTmplPath("home")))
 	r.Get("/", controllers.StaticHandler(tmpl))
 
-	tmpl, err = views.ParseTpl(CreateTmplPath("contact"))
-	if err != nil {
-		panic(err)
-	}
+	tmpl = views.Must(views.ParseTpl(CreateTmplPath("contact")))
 	r.Get("/contact", controllers.StaticHandler(tmpl))
 
-	tmpl, err = views.ParseTpl(CreateTmplPath("faq"))
-	if err != nil {
-		panic(err)
-	}
+	tmpl = views.Must(views.ParseTpl(CreateTmplPath("faq")))
 	r.Get("/faq", controllers.StaticHandler(tmpl))
 
 	r.Get("/test/{testId}", testHandler)

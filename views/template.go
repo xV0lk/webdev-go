@@ -10,6 +10,13 @@ type Template struct {
 	htmlTmpl *template.Template
 }
 
+func Must(t Template, err error) Template {
+	if err != nil {
+		panic(err)
+	}
+	return t
+}
+
 func ParseTpl(filePath string) (Template, error) {
 	tmpl, err := template.ParseFiles(filePath)
 	if err != nil {
