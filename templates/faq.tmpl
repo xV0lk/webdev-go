@@ -9,12 +9,11 @@
   <body>
     <h1>This is the FAQ page</h1>
     <ul>
-      <li>
-        <p><strong>This is a question: </strong>This is the answer</p>
-      </li>
-      <li>
-        <p><strong>This is a question: </strong>This is the answer</p>
-      </li>
+      {{ range . }}
+      {{ template "qa" . }}
+      {{
+        end
+      }}
     </ul>
     <style>
       body {
@@ -24,3 +23,8 @@
     </style>
   </body>
 </html>
+{{define "qa"}}
+<li>
+  <strong>{{.Question}}:</strong> {{.Answer}}
+</li>
+{{ end }}
