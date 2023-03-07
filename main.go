@@ -26,6 +26,9 @@ func main() {
 	tmpl = views.Must(views.ParseFs(templates.FS, "faq.tmpl", "tailwind.tmpl"))
 	r.Get("/faq", controllers.FAQ(tmpl))
 
+	tmpl = views.Must(views.ParseFs(templates.FS, "signup.tmpl", "tailwind.tmpl"))
+	r.Get("/signup", controllers.FAQ(tmpl))
+
 	r.Get("/test/{testId}", testHandler)
 
 	fmt.Printf("Started server on port: %v\n", DPORT)
