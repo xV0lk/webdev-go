@@ -2,12 +2,16 @@
 <div class="px-5 my-16">
   <h1 class="text-4xl text-center font-semibold tracking-tight">SignUp</h1>
 </div>
-<form class="my-28 grid place-content-center h-full w-1/4 mx-auto" action="">
+<form
+  class="my-28 grid place-content-center h-full w-1/4 mx-auto"
+  action="/users"
+  method="post"
+>
   <div class="flex flex-col gap-9">
-    <div class="flex flex-col items-center gap-2">
+    <div class="flex flex-col items-center justify-center gap-2">
       <label class="text-2xl" for="emailSignup">Email address</label>
       <input
-        class="text-center py-1 px-2"
+        class="text-center py-1 px-2 w-60"
         type="email"
         name="email"
         id="emailSignup"
@@ -16,11 +20,19 @@
     <div class="flex flex-col items-center gap-2">
       <label class="text-2xl" for="passwordSignup">Password</label>
       <input
-        class="text-center py-1 px-2"
+        class="text-center py-1 px-2 w-60"
         type="password"
         name="password"
         id="passwordSignup"
       />
+    </div>
+    <div class="flex justify-center">
+      <button
+        type="submit"
+        class="hover:bg-teal-600 transition-colors bg-teal-700 text-slate-200 px-3 py-1 rounded"
+      >
+        SignUp
+      </button>
     </div>
   </div>
 </form>
