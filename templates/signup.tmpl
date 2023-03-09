@@ -1,39 +1,52 @@
 {{template "header" .}}
 <div class="py-32">
   <form
-    class="w-1/2 md:w-3/5 xl:w-1/4 mx-auto rounded shadow shadow-slate-300/25 bg-slate-700 p-8"
+    class="w-4/5 sm:w-2/3 md:w-3/5 lg:w-2/5 mx-auto rounded shadow shadow-slate-300/25 bg-slate-700 p-9"
     action="/users"
     method="post"
   >
-    <h1 class="text-3xl text-center font-semibold tracking-tight mb-12">
+    <h1 class="text-3xl text-center font-semibold tracking-tight my-3">
       Start Sharing today!
     </h1>
-    <div class="flex flex-col gap-9">
-      <div class="flex flex-col items-center justify-center gap-2">
-        <label class="text-xl" for="emailSignup">Email address</label>
+    <div class="flex flex-col">
+      <div class="flex flex-col justify-center gap-1 my-3">
+        <label class="text-md text-slate-300" for="emailSignup"
+          >Email address</label
+        >
         <input
-          class="text-center py-1 px-2 w-full"
+          class="py-1 px-2 w-full"
           type="email"
           name="email"
           id="emailSignup"
         />
       </div>
-      <div class="flex flex-col items-center gap-2">
-        <label class="text-xl" for="passwordSignup">Password</label>
+      <div class="flex flex-col gap-1 my-3">
+        <label class="text-md text-slate-300" for="passwordSignup"
+          >Password</label
+        >
         <input
-          class="text-center py-1 px-2 w-full"
+          class="py-1 px-2 w-full"
           type="password"
           name="password"
           id="passwordSignup"
         />
       </div>
-      <div class="flex justify-center">
+      <div class="flex justify-center my-2">
         <button
           type="submit"
-          class="hover:bg-teal-600 transition-colors bg-teal-700 text-slate-200 px-3 py-1 rounded w-full text-xl font-semibold"
+          class="hover:bg-teal-600 transition-colors bg-teal-700 text-slate-100 px-3 py-1 rounded w-full text-xl font-semibold"
         >
           SignUp
         </button>
+      </div>
+      <div class="flex justify-between text-xs text-slate-400">
+        <p>
+          Already have an account?
+          <a class="underline" href="/signin">Sign In</a>
+        </p>
+        <p>
+          <a class="underline" href="/resetpassword">Forgot your password</a>
+        </p>
       </div>
     </div>
   </form>
